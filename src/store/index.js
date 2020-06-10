@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    group: { name: 'people', pull: 'clone', put: false }
   },
   mutations: {
   },

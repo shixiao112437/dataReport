@@ -1,11 +1,13 @@
 <template>
     <el-container>
       <el-aside class="aside" width="200px">
-
+                   <asideNav></asideNav>
       </el-aside>
       <el-container>
-          <el-main>内容</el-main>
-          <el-footer height='300px'>
+          <el-main class="contain">
+                <mainDrag></mainDrag>
+          </el-main>
+          <el-footer height='200px'>
           <div class="drag">
            <vue-draggable-resizable
            style="width:100%"
@@ -33,7 +35,12 @@
 <script>
 // import VueDraggableResizable from 'vue-draggable-resizable'
 // import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
+import asideNav from '@/components/nav.vue'
+import mainDrag from '@/components/main.vue'
 export default {
+  components: {
+    asideNav, mainDrag
+  },
   data: function () {
     return {
       width: 0,
@@ -53,6 +60,8 @@ export default {
       this.x = x
       this.y = y
     }
+    // /union/selectDatabase
+
   }
 }
 </script>
@@ -60,9 +69,12 @@ export default {
 .el-container{
   height: 100vh;
   overflow: hidden;
+  .el-main{
+    height: 100%;
+  }
 }
 .aside{
-  background-color: chocolate;
+  // background-color: chocolate;
   height: 100vh;
 }
 .el-main,.el-footer{
@@ -75,7 +87,7 @@ export default {
   position: relative;
 }
 .drag{
-  height: 100px;
+  height: 100%;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -86,5 +98,8 @@ export default {
 .vdr{
   border: none;
   border-top: 3px #ccc solid;
+}
+.contain{
+  position: relative;
 }
 </style>
